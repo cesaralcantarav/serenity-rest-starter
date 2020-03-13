@@ -21,7 +21,6 @@ public class ConsultaMillasStepDefinitions {
         String accessToken;
         consulta.generateToken();
         accessToken = SerenityRest.lastResponse().path("access_token").toString();
-        System.out.println("Access Token " + accessToken);
 
         return accessToken;
     }
@@ -30,15 +29,14 @@ public class ConsultaMillasStepDefinitions {
     public void consultar_millas(String numeroTarjeta){
         String accessToken = generate_token();
         consulta.consultarMillas(accessToken, numeroTarjeta);
-        String resp = SerenityRest.lastResponse().toString();
         //restAssuredThat(response -> response.statusCode(200));
-        System.out.println("Current Response" + resp);
     }
 
-    @Then("obtiene su saldo de millas")
-    public void obtener_millas(){
-        String response = SerenityRest.lastResponse().toString();
-        consulta.validarSaldo(response);
+    @Then("^el usuario \"([^\"]*)\" obtiene su saldo de millas$")
+    public void obtener_millas(String condicion){
+
+        consulta.validarSaldo(condicion);
+
     }
 
 }
