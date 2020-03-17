@@ -47,7 +47,7 @@ public class AnulacionOperacion {
 
     }
 
-    @Then("la anulacion de canje de millas de su tarjeta {string} es satisfactoria")
+    @Then("la anulacion de canje de millas de su tarjeta es satisfactoria")
     public void validarAnulacion(String millas, String consultaMillas) {
 
         r.then().statusCode(200);
