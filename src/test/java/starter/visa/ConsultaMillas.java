@@ -1,13 +1,12 @@
-package starter.consulta;
+package starter.visa;
 
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import starter.WebServiceEndPoints;
 
-public class Consulta {
+public class ConsultaMillas {
 
     private Response r;
     private String ibClientId = "dd4227301f944964ba30dc5cd73e9a82";
@@ -29,7 +28,7 @@ public class Consulta {
     public void consultarMillas(String accessToken, String numeroTarjeta) {
          r = SerenityRest.given().
                  header("Authorization","Bearer " + accessToken)
-                .header("X-IB-Client-Id",ibClientId )
+                .header("X-IB-Client-Id", ibClientId )
                 .header("X-INT-Device-Id","127.0.0.1")
                 .header("X-INT-Timestamp","2030-11-29T14:39:22.925769+00:00")
                 .header("X-INT-Consumer-Id","NBZ")
@@ -39,8 +38,7 @@ public class Consulta {
                 .param("externalTrxId","517789")
                 .when()
                 .get(WebServiceEndPoints.CONSULTA_MILLAS.getUrl()+numeroTarjeta);
-                //.then()
-                //.statusCode(200);
+
         String response = r.getBody().asString();
         System.out.println("API >>>>>>>>> " + WebServiceEndPoints.CONSULTA_MILLAS.getUrl());
         System.out.println("\nCurrent response >>>>>>>>> " + response);
@@ -51,6 +49,7 @@ public class Consulta {
 
         if (condicion.equals("si")){
             r.then().statusCode(200);
+            Assert.assertEquals(r.getBody().asString().contains("miles"), true);
         }
         else {
             r.then().statusCode(403);

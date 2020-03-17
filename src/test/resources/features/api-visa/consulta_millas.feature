@@ -27,21 +27,21 @@
         | numero_tarjeta   | obtener_millas |
         | 4547759980067295 | si             |
 
-      Examples: Tarjeta Interbank Visa Oro
-        | numero_tarjeta   | obtener_millas |
-        | 4913379980064329 | si             |
-
-      Examples: Tarjeta Interbank MasterCard Platinum
-        | numero_tarjeta   | obtener_millas |
-        | 5491619980056362 | si             |
-
-      Examples: Tarjeta Interbank MasterCard Clasica
-        | numero_tarjeta   | obtener_millas |
-        | 5444029980042479 | si             |
-
-      Examples: Tarjeta Interbank MasterCard Oro
-        | numero_tarjeta   | obtener_millas |
-        | 5443599980050392 | si             |
+#      Examples: Tarjeta Interbank Visa Oro
+#        | numero_tarjeta   | obtener_millas |
+#        | 4913379980064329 | si             |
+#
+#      Examples: Tarjeta Interbank MasterCard Platinum
+#        | numero_tarjeta   | obtener_millas |
+#        | 5491619980056362 | si             |
+#
+#      Examples: Tarjeta Interbank MasterCard Clasica
+#        | numero_tarjeta   | obtener_millas |
+#        | 5444029980042479 | si             |
+#
+#      Examples: Tarjeta Interbank MasterCard Oro
+#        | numero_tarjeta   | obtener_millas |
+#        | 5443599980050392 | si             |
 
       Examples: Tarjeta Amex Blue
         | numero_tarjeta  | obtener_millas |
